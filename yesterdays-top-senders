@@ -1,0 +1,1 @@
+fgrep `date --date='1 day ago' +%Y-%m-%d` /var/log/exim_mainlog | fgrep A=dovecot_login | awk {'print $9,$10'} | cut -d: -f 2 | cut -d" " -f 1 | grep @| sort | uniq -c | sort -rnk 1
